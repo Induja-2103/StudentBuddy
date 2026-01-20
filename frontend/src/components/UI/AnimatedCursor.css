@@ -1,0 +1,67 @@
+/* "Mini AI Core" Cursor - Matches the StudentBuddy AI Aesthetic */
+.cursor-dot {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+
+    /* Gradient Orb (Cyan to Purple) to match the AI vibe */
+    background: radial-gradient(circle at 30% 30%, #ffffff, #007AFF, #7c3aed);
+    border-radius: 50%;
+
+    /* Center positioning */
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+    z-index: 9999;
+
+    /* Soft Glow */
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.5),
+        0 0 20px rgba(124, 58, 237, 0.3);
+
+    mix-blend-mode: normal;
+    /* We want the colors to be visible */
+    transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.1s ease,
+        background 0.3s ease;
+    opacity: 1;
+}
+
+/* Remove ring */
+.cursor-ring {
+    display: none;
+}
+
+/* Hovering state - Core Expands and Brightens */
+.cursor-dot.hovering {
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #00C6FF, #007AFF);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.6),
+        0 0 40px rgba(0, 122, 255, 0.4);
+    mix-blend-mode: screen;
+    /* Glowy overlay effect */
+}
+
+/* Clicking state */
+.cursor-dot.clicking {
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Hidden state */
+.cursor-dot.hidden {
+    opacity: 0;
+}
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}
